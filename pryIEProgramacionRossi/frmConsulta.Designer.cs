@@ -31,10 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsulta));
             this.cmbRubro = new System.Windows.Forms.ComboBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRubro = new System.Windows.Forms.Label();
             this.btnMostrar = new System.Windows.Forms.Button();
             this.btnExportar = new System.Windows.Forms.Button();
@@ -44,6 +40,11 @@
             this.lblTotalStock = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblInformacion = new System.Windows.Forms.Label();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             this.cmbRubro.FormattingEnabled = true;
             this.cmbRubro.IntegralHeight = false;
             this.cmbRubro.Location = new System.Drawing.Point(397, 28);
-            this.cmbRubro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbRubro.Margin = new System.Windows.Forms.Padding(4);
             this.cmbRubro.Name = "cmbRubro";
             this.cmbRubro.Size = new System.Drawing.Size(160, 28);
             this.cmbRubro.TabIndex = 0;
@@ -68,42 +69,15 @@
             this.colCodigo,
             this.colDesc,
             this.colCosto,
-            this.colStock});
+            this.colStock,
+            this.colValStock});
             this.dgvDatos.Location = new System.Drawing.Point(16, 76);
-            this.dgvDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersVisible = false;
             this.dgvDatos.RowHeadersWidth = 51;
-            this.dgvDatos.Size = new System.Drawing.Size(543, 185);
+            this.dgvDatos.Size = new System.Drawing.Size(541, 185);
             this.dgvDatos.TabIndex = 1;
-            // 
-            // colCodigo
-            // 
-            this.colCodigo.HeaderText = "Codigo";
-            this.colCodigo.MinimumWidth = 6;
-            this.colCodigo.Name = "colCodigo";
-            this.colCodigo.Width = 60;
-            // 
-            // colDesc
-            // 
-            this.colDesc.HeaderText = "Descripcion";
-            this.colDesc.MinimumWidth = 6;
-            this.colDesc.Name = "colDesc";
-            this.colDesc.Width = 125;
-            // 
-            // colCosto
-            // 
-            this.colCosto.HeaderText = "Costo";
-            this.colCosto.MinimumWidth = 6;
-            this.colCosto.Name = "colCosto";
-            this.colCosto.Width = 80;
-            // 
-            // colStock
-            // 
-            this.colStock.HeaderText = "Stock";
-            this.colStock.MinimumWidth = 6;
-            this.colStock.Name = "colStock";
-            this.colStock.Width = 80;
             // 
             // lblRubro
             // 
@@ -119,8 +93,8 @@
             // btnMostrar
             // 
             this.btnMostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMostrar.Location = new System.Drawing.Point(304, 427);
-            this.btnMostrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMostrar.Location = new System.Drawing.Point(310, 410);
+            this.btnMostrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(115, 42);
             this.btnMostrar.TabIndex = 3;
@@ -131,8 +105,8 @@
             // btnExportar
             // 
             this.btnExportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportar.Location = new System.Drawing.Point(429, 427);
-            this.btnExportar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExportar.Location = new System.Drawing.Point(442, 410);
+            this.btnExportar.Margin = new System.Windows.Forms.Padding(4);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(115, 42);
             this.btnExportar.TabIndex = 4;
@@ -165,7 +139,7 @@
             // 
             this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(466, 324);
+            this.lblTotal.Location = new System.Drawing.Point(466, 318);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(91, 26);
@@ -175,7 +149,7 @@
             // 
             this.lblTotalStock.AutoSize = true;
             this.lblTotalStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalStock.Location = new System.Drawing.Point(294, 330);
+            this.lblTotalStock.Location = new System.Drawing.Point(306, 324);
             this.lblTotalStock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalStock.Name = "lblTotalStock";
             this.lblTotalStock.Size = new System.Drawing.Size(98, 20);
@@ -185,7 +159,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(396, 379);
+            this.linkLabel1.Location = new System.Drawing.Point(412, 363);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(161, 16);
@@ -198,18 +172,54 @@
             // 
             this.lblInformacion.AutoSize = true;
             this.lblInformacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInformacion.Location = new System.Drawing.Point(254, 375);
+            this.lblInformacion.Location = new System.Drawing.Point(266, 359);
             this.lblInformacion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInformacion.Name = "lblInformacion";
             this.lblInformacion.Size = new System.Drawing.Size(138, 20);
             this.lblInformacion.TabIndex = 10;
             this.lblInformacion.Text = "Mas Informacion:";
             // 
+            // colCodigo
+            // 
+            this.colCodigo.HeaderText = "Codigo";
+            this.colCodigo.MinimumWidth = 6;
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.Width = 60;
+            // 
+            // colDesc
+            // 
+            this.colDesc.HeaderText = "Descripcion";
+            this.colDesc.MinimumWidth = 6;
+            this.colDesc.Name = "colDesc";
+            this.colDesc.Width = 125;
+            // 
+            // colCosto
+            // 
+            this.colCosto.HeaderText = "Costo";
+            this.colCosto.MinimumWidth = 6;
+            this.colCosto.Name = "colCosto";
+            this.colCosto.Width = 60;
+            // 
+            // colStock
+            // 
+            this.colStock.HeaderText = "Stock";
+            this.colStock.MinimumWidth = 6;
+            this.colStock.Name = "colStock";
+            this.colStock.Width = 60;
+            // 
+            // colValStock
+            // 
+            this.colValStock.HeaderText = "Valor en Stock";
+            this.colValStock.MinimumWidth = 6;
+            this.colValStock.Name = "colValStock";
+            this.colValStock.Width = 125;
+            // 
             // frmConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 495);
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ClientSize = new System.Drawing.Size(588, 467);
             this.Controls.Add(this.lblInformacion);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lblTotalStock);
@@ -222,7 +232,7 @@
             this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.cmbRubro);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CONSULTA DE ARTICULOS";
@@ -250,6 +260,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCosto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValStock;
     }
 }
 
